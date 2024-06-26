@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p1vdaru5mxip"
-path="res://.godot/imported/Sprite-Walking-Sheet.aseprite-ec205edc248bc8c6699845b01d4f15b5.ctex"
+uid="uid://d11o7oqnmx323"
+path="res://.godot/imported/Sprite-Running.aseprite.png-a0350b315adecc2cc722ca9550543a48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprite-Walking-Sheet.aseprite"
-dest_files=["res://.godot/imported/Sprite-Walking-Sheet.aseprite-ec205edc248bc8c6699845b01d4f15b5.ctex"]
+source_file="res://assets/Sprite-Running.aseprite.png"
+dest_files=["res://.godot/imported/Sprite-Running.aseprite.png-a0350b315adecc2cc722ca9550543a48.ctex"]
 
 [params]
 

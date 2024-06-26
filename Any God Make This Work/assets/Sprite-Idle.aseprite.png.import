@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i4vhywqjji26"
-path="res://.godot/imported/Sprite-Running.png-5b354749dd57225ea3d5106721a11d0b.ctex"
+uid="uid://dbcv1eukfp54o"
+path="res://.godot/imported/Sprite-Idle.aseprite.png-657d00c71ccf370a41ddb5a525e16dfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EpikAssets/Sprite-Running.png"
-dest_files=["res://.godot/imported/Sprite-Running.png-5b354749dd57225ea3d5106721a11d0b.ctex"]
+source_file="res://assets/Sprite-Idle.aseprite.png"
+dest_files=["res://.godot/imported/Sprite-Idle.aseprite.png-657d00c71ccf370a41ddb5a525e16dfc.ctex"]
 
 [params]
 

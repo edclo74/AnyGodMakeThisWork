@@ -2,13 +2,13 @@
 
 importer="Aseprite AnimatedSprite2D"
 type="PackedScene"
-uid="uid://c2j42743kjorc"
-path="res://.godot/imported/Sprite-Running.aseprite-ddbbd33e37a32df8743e7b969b734b51.scn"
+uid="uid://bpqo2c50hjqw6"
+path="res://.godot/imported/Sprite-Idle.aseprite-f814548f610f760dcfd9fbe235b88386.scn"
 
 [deps]
 
-source_file="res://assets/Sprite-Running.aseprite"
-dest_files=["res://.godot/imported/Sprite-Running.aseprite-ddbbd33e37a32df8743e7b969b734b51.scn"]
+source_file="res://assets/Sprite-Idle.aseprite"
+dest_files=["res://.godot/imported/Sprite-Idle.aseprite-f814548f610f760dcfd9fbe235b88386.scn"]
 
 [params]
 
