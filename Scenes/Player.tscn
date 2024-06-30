@@ -131,7 +131,7 @@ shape = SubResource("CircleShape2D_b0jg7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r3tsc")
-animation = &"Shoot"
+animation = &"Running"
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
