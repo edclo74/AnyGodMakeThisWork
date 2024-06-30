@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_4wrrv"]
 [ext_resource type="Texture2D" uid="uid://bnee80lq3c334" path="res://Sprite-Running.png" id="2_x6xif"]
 [ext_resource type="Texture2D" uid="uid://f0emhvflkype" path="res://Sprite-Walking-Sheet.png" id="3_wxrbf"]
+[ext_resource type="Texture2D" uid="uid://ccruxbomtbqve" path="res://assets/Shoot_anim.aseprite.png" id="4_meptf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b0jg7"]
 radius = 12.0
@@ -36,15 +37,13 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("2_x6xif")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_frun3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_na8du"]
+atlas = ExtResource("4_meptf")
+region = Rect2(0, 0, 27, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wo1wr"]
-atlas = SubResource("CompressedTexture2D_frun3")
-region = Rect2(0, 0, 27, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ut1q"]
-atlas = SubResource("CompressedTexture2D_frun3")
-region = Rect2(27, 0, 27, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_frtmk"]
+atlas = ExtResource("4_meptf")
+region = Rect2(27, 0, 27, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_masns"]
 atlas = ExtResource("3_wxrbf")
@@ -73,7 +72,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 2.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -97,14 +96,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wo1wr")
+"texture": SubResource("AtlasTexture_na8du")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ut1q")
+"texture": SubResource("AtlasTexture_frtmk")
 }],
-"loop": true,
+"loop": false,
 "name": &"Shoot",
-"speed": 5.0
+"speed": 0.2
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,8 +131,10 @@ shape = SubResource("CircleShape2D_b0jg7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r3tsc")
-animation = &"Idle"
+animation = &"Shoot"
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Timer" type="Timer" parent="."]

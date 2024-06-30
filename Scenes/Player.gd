@@ -10,7 +10,7 @@ func _physics_process(delta):
 
 		
 		
-		
+		#Movement
 	direction = Input.get_vector("left", "right", "up", "down").normalized()
 	if direction:
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION)
@@ -24,6 +24,13 @@ func _physics_process(delta):
 	elif velocity.x < 0:
 		Sprite.flip_h = false
 	
+	#Shoot Mechanics
+	var shoot = Input.is_action_pressed("shoot")
+	if shoot:
+		Sprite.play("Shoot")
+	else:
+		pass
+
 func _process(delta):
 	look_at(get_global_mouse_position())
 	rotation_degrees += 90
