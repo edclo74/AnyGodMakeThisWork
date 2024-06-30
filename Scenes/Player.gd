@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var FRICTION = 300.0
 @onready var Sprite = $AnimatedSprite2D
 @onready var world = get_node('/root/World')
+@onready var cooldown_timer = $Shoot_Timer
 var direction = Vector2.ZERO
 func _physics_process(delta):
 
@@ -14,7 +15,7 @@ func _physics_process(delta):
 		direction = Input.get_vector("left", "right", "up", "down").normalized()
 
 		if direction and run:
-			velocity = velocity.move_toward(direction * SPEED * 1.5, ACCELERATION)
+			velocity = velocity.move_toward(direction * SPEED * 2, ACCELERATION)
 			Sprite.play("Running") 
 		elif direction:
 			velocity = velocity.move_toward(direction * SPEED, ACCELERATION)
@@ -32,6 +33,7 @@ func _physics_process(delta):
 		var shoot = Input.is_action_pressed("shoot")
 		if shoot:
 			Sprite.play("Shoot")
+			
 		else:
 			pass
 
@@ -43,3 +45,4 @@ func _process(delta):
 	
 	move_and_slide()
 	
+
