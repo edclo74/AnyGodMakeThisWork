@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+var is_ready: bool = true
 @export var SPEED = 100.0
 @export var ACCELERATION = 300.0
 @export var FRICTION = 300.0
@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var cooldown_timer = $Shoot_Timer
 var direction = Vector2.ZERO
 func _physics_process(delta):
-
+		
 		
 		var run = Input.is_action_pressed("run")
 		#Movement
@@ -30,12 +30,16 @@ func _physics_process(delta):
 			Sprite.flip_h = false
 	
 	#Shoot Mechanics
-		var shoot = Input.is_action_pressed("shoot")
-		if shoot:
+		var shoot = Input.is_action_pressed("shoot") 
+		if Input.is_action_pressed("shoot") and is_ready:
+			$Shoot_Timer.start()
+			is_ready = false
 			Sprite.play("Shoot")
 			
 		else:
 			pass
+func _on_shoot_timer_timeout():
+	is_ready = true
 
 func _process(delta):
 	look_at(get_global_mouse_position())
@@ -45,4 +49,10 @@ func _process(delta):
 	
 	move_and_slide()
 	
+
+
+
+
+
+
 
