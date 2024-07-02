@@ -286,6 +286,7 @@ states/Shoot/position = Vector2(682, 83)
 states/Walking/node = SubResource("AnimationNodeAnimation_f88qr")
 states/Walking/position = Vector2(409, 195)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ubg3x"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_ajdum"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_32mce"), "Running", "Walking", SubResource("AnimationNodeStateMachineTransition_ojagp"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_fluhg"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_db0fp"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_8hmct"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_7qk4c")]
+graph_offset = Vector2(0, -3.32364)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4wrrv")
@@ -295,7 +296,7 @@ shape = SubResource("CircleShape2D_b0jg7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r3tsc")
-animation = &"Shoot"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
