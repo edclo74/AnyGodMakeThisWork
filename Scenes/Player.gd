@@ -10,6 +10,7 @@ var is_ready: bool = true
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var GunShot = $GunShot
 var direction = Vector2.ZERO
+@onready var Camera = $AnimationPlayer
 var reload = 4
 func _ready():
 	$AnimationTree.active = true
@@ -36,6 +37,7 @@ func _physics_process(delta):
 	#Shoot Mechanics
 		
 		if Input.is_action_just_pressed("shoot") and is_ready:
+			Camera.play("Cam_Shake")
 			$Shoot_Timer.start()
 			is_ready = false
 			Sprite.travel("Shoot")
