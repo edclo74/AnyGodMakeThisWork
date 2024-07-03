@@ -8,9 +8,9 @@ var is_ready: bool = true
 @onready var cooldown_timer = $Shoot_Timer
 @onready var Sprite = $AnimationTree.get("parameters/playback")
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
+@onready var GunShot = $GunShot
 var direction = Vector2.ZERO
-
+var reload = 4
 func _ready():
 	$AnimationTree.active = true
 func _physics_process(delta):
@@ -39,8 +39,17 @@ func _physics_process(delta):
 			$Shoot_Timer.start()
 			is_ready = false
 			Sprite.travel("Shoot")
+			$GunShot.play()
 		else:
 			pass
+		
+		
+		if reload == 0:
+			print()
+			
+		else:
+			pass
+
 func _on_shoot_timer_timeout():
 	is_ready = true
 
