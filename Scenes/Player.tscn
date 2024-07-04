@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dis4ybo7yihh8"]
+[gd_scene load_steps=45 format=3 uid="uid://dis4ybo7yihh8"]
 
 [ext_resource type="Texture2D" uid="uid://dbcv1eukfp54o" path="res://assets/Sprite-Idle.aseprite.png" id="1_2vu8y"]
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_4wrrv"]
@@ -124,6 +124,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_0834w"]
+resource_name = "Cam_Shake"
+length = 0.5
+
 [sub_resource type="Animation" id="Animation_edqyv"]
 length = 0.8
 loop_mode = 1
@@ -151,6 +155,9 @@ tracks/1/keys = {
 "update": 1,
 "values": ["Idle"]
 }
+
+[sub_resource type="Animation" id="Animation_mttfw"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_tvcgq"]
 length = 0.5
@@ -235,37 +242,6 @@ tracks/1/keys = {
 "values": ["Walking"]
 }
 
-[sub_resource type="Animation" id="Animation_0834w"]
-resource_name = "Cam_Shake"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(10, 0), Vector2(10, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mttfw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_70pqg"]
 _data = {
 "Cam_Shake": SubResource("Animation_0834w"),
@@ -317,7 +293,44 @@ states/Shoot/position = Vector2(682, 83)
 states/Walking/node = SubResource("AnimationNodeAnimation_f88qr")
 states/Walking/position = Vector2(409, 195)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ubg3x"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_ajdum"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_32mce"), "Running", "Walking", SubResource("AnimationNodeStateMachineTransition_ojagp"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_fluhg"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_db0fp"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_8hmct"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_7qk4c")]
-graph_offset = Vector2(-134.507, -3.32364)
+graph_offset = Vector2(-95.507, -1.32364)
+
+[sub_resource type="Animation" id="Animation_2iw6t"]
+resource_name = "Cam_Shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(25.307, 15.45), Vector2(-25.344, -12.07), Vector2(25.72, 0), Vector2(-25.86, 5.3), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lmejg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e3br"]
+_data = {
+"Cam_Shake": SubResource("Animation_2iw6t"),
+"RESET": SubResource("Animation_lmejg")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4wrrv")
@@ -329,9 +342,6 @@ shape = SubResource("CircleShape2D_b0jg7")
 sprite_frames = SubResource("SpriteFrames_r3tsc")
 animation = &"Shoot"
 autoplay = "Idle"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 one_shot = true
@@ -349,5 +359,13 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="GunShot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ube3h")
 bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="CameraShake" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6e3br")
+}
 
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]
