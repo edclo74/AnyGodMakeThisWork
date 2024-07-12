@@ -9,12 +9,16 @@ var is_ready: bool = true
 @onready var Sprite = $AnimationTree.get("parameters/playback")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var GunShot = $GunShot
+@onready var hehe = $"../Main Room/hehe"
+
 var direction = Vector2.ZERO
 @onready var CameraShake = $CameraShake
 var reload = 4
 func _ready():
 	$AnimationTree.active = true
+
 func _physics_process(delta):
+		hehe = hehe.visible
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		var shoot = Input.is_action_pressed("shoot") 
 		var run = Input.is_action_pressed("run")
@@ -73,3 +77,11 @@ func _process(delta):
 
 
 
+
+
+
+
+
+
+func _on_main_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	hehe.visible = not hehe.visible

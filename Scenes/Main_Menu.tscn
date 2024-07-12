@@ -43,27 +43,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yj87d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Play_Button" type="Button" parent="VBoxContainer"]
+[node name="Play_Button" type="Button" parent="."]
 layout_mode = 2
+offset_left = 956.0
+offset_top = 153.0
+offset_right = 1124.0
+offset_bottom = 251.0
 icon = ExtResource("2_mkhwr")
 
-[node name="Options_Button" type="Button" parent="VBoxContainer"]
+[node name="Options_Button" type="Button" parent="."]
 layout_mode = 2
+offset_left = 1017.0
+offset_top = 312.0
+offset_right = 1087.0
+offset_bottom = 343.0
 text = "Options"
 
-[node name="Quit_Button" type="Button" parent="VBoxContainer"]
+[node name="Quit_Button" type="Button" parent="."]
 layout_mode = 2
+offset_left = 1004.0
+offset_top = 409.0
+offset_right = 1046.0
+offset_bottom = 440.0
 text = "Quit
 "
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
-position = Vector2(525, 217)
-scale = Vector2(2.90426, 2.35714)
+position = Vector2(525.808, 218.12)
+scale = Vector2(1.28825, 1.23724)
 sprite_frames = SubResource("SpriteFrames_tnne0")
 offset = Vector2(24, 15)
 
@@ -71,6 +78,6 @@ offset = Vector2(24, 15)
 stream = ExtResource("4_40vyx")
 bus = &"SFX"
 
-[connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Play_Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]

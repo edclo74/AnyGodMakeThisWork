@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3u20wh28dmic"]
+[gd_scene load_steps=10 format=3 uid="uid://c3u20wh28dmic"]
 
 [ext_resource type="Texture2D" uid="uid://dycpedigob8ck" path="res://assets/TileMap1.aseprite.png" id="1_vxrna"]
 [ext_resource type="PackedScene" uid="uid://dis4ybo7yihh8" path="res://Scenes/Player.tscn" id="2_jbjq6"]
+[ext_resource type="Texture2D" uid="uid://n0xt7cir1oie" path="res://assets/Room Blockage.aseprite.png" id="3_svlmh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cpvwb"]
 
@@ -179,6 +180,18 @@ terrain_set_0/terrain_1/name = "Wall"
 terrain_set_0/terrain_1/color = Color(0.188235, 1, 1, 1)
 sources/1 = SubResource("TileSetAtlasSource_6b3ur")
 
+[sub_resource type="Curve2D" id="Curve2D_2bblk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 394, 31, 0, 0, 0, 0, 393, 159, 0, 0, 0, 0, 394, 31)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8m8y"]
+size = Vector2(411, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n50iw"]
+size = Vector2(277, 120)
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -188,3 +201,26 @@ layer_0/tile_data = PackedInt32Array(720922, 131073, 4, 655386, 262145, 3, 58985
 
 [node name="Player" parent="." instance=ExtResource("2_jbjq6")]
 position = Vector2(136, 71)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2bblk")
+
+[node name="Main Room" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Room"]
+position = Vector2(216.5, 96)
+shape = SubResource("RectangleShape2D_l8m8y")
+
+[node name="hehe" type="Sprite2D" parent="Main Room"]
+position = Vector2(216.5, 95.75)
+scale = Vector2(25.6875, 10.6563)
+texture = ExtResource("3_svlmh")
+
+[node name="Other_Room" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other_Room"]
+position = Vector2(247.5, 280)
+shape = SubResource("RectangleShape2D_n50iw")
+
+[connection signal="body_shape_entered" from="Main Room" to="Player" method="_on_main_room_body_shape_entered"]
+[connection signal="body_shape_entered" from="Other_Room" to="Player" method="_on_other_room_body_shape_entered"]
