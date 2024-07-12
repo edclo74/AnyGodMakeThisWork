@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dis4ybo7yihh8"]
+[gd_scene load_steps=70 format=3 uid="uid://dis4ybo7yihh8"]
 
 [ext_resource type="Texture2D" uid="uid://dbcv1eukfp54o" path="res://assets/Sprite-Idle.aseprite.png" id="1_2vu8y"]
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_4wrrv"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://f0emhvflkype" path="res://Sprite-Walking-Sheet.png" id="3_wxrbf"]
 [ext_resource type="Texture2D" uid="uid://ccruxbomtbqve" path="res://assets/Shoot_anim.aseprite.png" id="4_meptf"]
 [ext_resource type="AudioStream" uid="uid://msi16quxyl8j" path="res://Scenes/8-bit game gunshot sound.mp3" id="6_ube3h"]
+[ext_resource type="Texture2D" uid="uid://cqfi8n803egtv" path="res://assets/Player-Icon-Bad-HealthV2.aseprite.png" id="7_lvi8q"]
+[ext_resource type="Texture2D" uid="uid://dwynu7iva2xgo" path="res://assets/Player-Icon-Good-Health.aseprite.png" id="8_7pjt4"]
+[ext_resource type="Texture2D" uid="uid://b2t4gij471afo" path="res://assets/Player-Icon-Medium-Health.aseprite.png" id="9_ik64c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b0jg7"]
 radius = 12.0
@@ -332,6 +335,165 @@ _data = {
 "RESET": SubResource("Animation_lmejg")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ket33"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14rkx"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf0jm"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uvmx"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3e21"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urdt3"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct3sj"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja5mv"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1kel"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8vgc"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ysy"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2e0"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k40qi"]
+atlas = ExtResource("7_lvi8q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj4dl"]
+atlas = ExtResource("8_7pjt4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guy7n"]
+atlas = ExtResource("8_7pjt4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jugvy"]
+atlas = ExtResource("8_7pjt4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1837d"]
+atlas = ExtResource("9_ik64c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kpnx"]
+atlas = ExtResource("9_ik64c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgagp"]
+atlas = ExtResource("9_ik64c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6xtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ket33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14rkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf0jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uvmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3e21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urdt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct3sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja5mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1kel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8vgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ysy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k40qi")
+}],
+"loop": true,
+"name": &"Bad",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj4dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guy7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jugvy")
+}],
+"loop": true,
+"name": &"Good",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1837d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kpnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgagp")
+}],
+"loop": true,
+"name": &"Medium",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_yqp07"]
+resource_name = "Good_Health"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq7qv"]
+_data = {
+"Good_Health": SubResource("Animation_yqp07")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4wrrv")
 
@@ -340,7 +502,7 @@ shape = SubResource("CircleShape2D_b0jg7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r3tsc")
-animation = &"Shoot"
+animation = &"Walking"
 autoplay = "Idle"
 
 [node name="Shoot_Timer" type="Timer" parent="."]
@@ -366,6 +528,17 @@ zoom = Vector2(3, 3)
 [node name="CameraShake" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6e3br")
+}
+
+[node name="Player Icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(-170, 88)
+sprite_frames = SubResource("SpriteFrames_x6xtm")
+animation = &"Medium"
+
+[node name="PlayerIcon_Player" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Player Icon")
+libraries = {
+"": SubResource("AnimationLibrary_qq7qv")
 }
 
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]

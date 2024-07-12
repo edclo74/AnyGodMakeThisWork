@@ -15,6 +15,7 @@ var reload = 4
 func _ready():
 	$AnimationTree.active = true
 func _physics_process(delta):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		var shoot = Input.is_action_pressed("shoot") 
 		var run = Input.is_action_pressed("run")
 		#Movement
