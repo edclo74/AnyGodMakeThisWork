@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3u20wh28dmic"]
+[gd_scene load_steps=12 format=3 uid="uid://c3u20wh28dmic"]
 
 [ext_resource type="Texture2D" uid="uid://dycpedigob8ck" path="res://assets/TileMap1.aseprite.png" id="1_vxrna"]
 [ext_resource type="PackedScene" uid="uid://dis4ybo7yihh8" path="res://Scenes/Player.tscn" id="2_jbjq6"]
 [ext_resource type="Texture2D" uid="uid://n0xt7cir1oie" path="res://assets/Room Blockage.aseprite.png" id="3_svlmh"]
+[ext_resource type="PackedScene" uid="uid://7pwe60a0qt6u" path="res://Scenes/enemy.tscn" id="4_kewkt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cpvwb"]
 
@@ -170,7 +171,7 @@ texture = ExtResource("1_vxrna")
 4:4/0/terrains_peering_bit/top_side = 1
 
 [sub_resource type="TileSet" id="TileSet_tvbtb"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 6
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_cpvwb")
 physics_layer_1/collision_layer = 1
 terrain_set_0/mode = 0
@@ -191,6 +192,9 @@ size = Vector2(411, 168)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n50iw"]
 size = Vector2(277, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghknx"]
+size = Vector2(260.5, 163)
 
 [node name="World" type="Node2D"]
 
@@ -222,5 +226,26 @@ texture = ExtResource("3_svlmh")
 position = Vector2(247.5, 280)
 shape = SubResource("RectangleShape2D_n50iw")
 
+[node name="hehe2" type="Sprite2D" parent="Other_Room"]
+position = Vector2(248.625, 280.187)
+scale = Vector2(17.4219, 7.60158)
+texture = ExtResource("3_svlmh")
+
+[node name="Other_Room2" type="Area2D" parent="."]
+
+[node name="hehe3" type="Sprite2D" parent="Other_Room2"]
+position = Vector2(-193.188, 141.594)
+scale = Vector2(16.3984, 10.1758)
+texture = ExtResource("3_svlmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other_Room2"]
+position = Vector2(-191.25, 141.5)
+shape = SubResource("RectangleShape2D_ghknx")
+
+[node name="Enemy" parent="." instance=ExtResource("4_kewkt")]
+position = Vector2(-25, 54)
+
 [connection signal="body_shape_entered" from="Main Room" to="Player" method="_on_main_room_body_shape_entered"]
 [connection signal="body_shape_entered" from="Other_Room" to="Player" method="_on_other_room_body_shape_entered"]
+[connection signal="body_shape_entered" from="Other_Room2" to="Player" method="_on_other_room_2_body_shape_entered"]
+[connection signal="body_shape_entered" from="Other_Room2" to="Player" method="_on_other_room_body_shape_entered"]

@@ -10,7 +10,8 @@ var is_ready: bool = true
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var GunShot = $GunShot
 @onready var hehe = $"../Main Room/hehe"
-
+@onready var hehe2 = $"../Other_Room/hehe2"
+@onready var hehe3 = $"../Other_Room2/hehe3"
 var direction = Vector2.ZERO
 @onready var CameraShake = $CameraShake
 var reload = 4
@@ -84,7 +85,11 @@ func _process(delta):
 
 func _on_main_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	hehe.hide()
-
+	hehe2.show()
+	hehe3.show()
 
 func _on_other_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	hehe.show()
+	hehe2.hide()
+	hehe3.show()
+
