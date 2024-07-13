@@ -18,7 +18,6 @@ func _ready():
 	$AnimationTree.active = true
 
 func _physics_process(delta):
-		hehe = hehe.visible
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		var shoot = Input.is_action_pressed("shoot") 
 		var run = Input.is_action_pressed("run")
@@ -84,4 +83,8 @@ func _process(delta):
 
 
 func _on_main_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.visible = not hehe.visible
+	hehe.hide()
+
+
+func _on_other_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	hehe.show()
