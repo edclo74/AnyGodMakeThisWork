@@ -1,5 +1,11 @@
 extends Node2D
+@export var speed = 0.2
 
+
+
+
+func _process(delta):
+	$Path2D/PathFollow2D.progress_ratio += speed * delta
 
 
 func _on_area_2d_mouse_entered():
