@@ -15,14 +15,16 @@ var is_ready: bool = true
 @onready var hehe4 = $"../hallway/hehe4"
 @onready var hehe5 = $"../hallway_2/hehe5"
 @onready var hehe6 =$"../Area2D/hehe6"
+@onready var crosshair = $"../Crosshair"
 var direction = Vector2.ZERO
 @onready var CameraShake = $CameraShake
 var reload = 4
+@onready var ray_cast_2d = $RayCast2D
 func _ready():
 	$AnimationTree.active = true
 
 func _physics_process(delta):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		var mouse_pos = get_global_mouse_position()
 		var shoot = Input.is_action_pressed("shoot") 
 		var run = Input.is_action_pressed("run")
 		#Movement
@@ -50,6 +52,14 @@ func _physics_process(delta):
 			is_ready = false
 			Sprite.travel("Shoot")
 			$GunShot.play()
+		
+			var collider = ray_cast_2d.get_collider()
+			if collider:
+				print(collider.name)
+				if collider.is_in_group("Enemy"):
+					print("Hit the bastard") 
+					if not collider.owner.dead:
+						collider.owner.hit()
 		else:
 			pass
 		
@@ -59,6 +69,8 @@ func _physics_process(delta):
 			
 		else:
 			pass
+			
+		crosshair.position = mouse_pos
 
 func _on_shoot_timer_timeout():
 	is_ready = true
@@ -67,6 +79,7 @@ func _on_shoot_timer_timeout():
 
 func _process(delta):
 	look_at(get_global_mouse_position())
+
 	rotation_degrees += 90
 	
 	
@@ -102,14 +115,6 @@ func _on_other_room_body_shape_entered(body_rid, body, body_shape_index, local_s
 	hehe5.show()
 	hehe6.show()
 
-func _on_other_room_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.show()
-	hehe2.show()
-	hehe3.hide()
-	hehe4.show()
-	hehe5.show()
-	hehe6.show()
-
 func _on_hallway_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	hehe.show()
 	hehe2.show()
@@ -137,3 +142,12 @@ func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shap
 	hehe4.show()
 	hehe5.show()
 	hehe6.hide()
+
+
+func _on_other_room_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	hehe.show()
+	hehe2.show()
+	hehe3.hide()
+	hehe4.show()
+	hehe5.show()
+	hehe6.show()

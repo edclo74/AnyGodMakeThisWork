@@ -1,9 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://qpbvjvf5l7a3"]
+[gd_scene load_steps=14 format=3 uid="uid://qpbvjvf5l7a3"]
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_yj87d"]
+[ext_resource type="Texture2D" uid="uid://btvowrcuv284s" path="res://assets/Main_menu_gangterasdasd.aseprite.png" id="2_1npb6"]
 [ext_resource type="Texture2D" uid="uid://3uovi17al5fc" path="res://assets/Play Button.aseprite.png" id="2_mkhwr"]
 [ext_resource type="Texture2D" uid="uid://bb20u68d4kiya" path="res://assets/Gun_MainMenu.aseprite.png" id="3_73g3l"]
-[ext_resource type="AudioStream" uid="uid://msi16quxyl8j" path="res://Scenes/8-bit game gunshot sound.mp3" id="4_40vyx"]
+[ext_resource type="AudioStream" uid="uid://cqqdn271ids3e" path="res://audiomass-output.mp3" id="5_b76ek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n54gp"]
+atlas = ExtResource("2_1npb6")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03hss"]
+atlas = ExtResource("2_1npb6")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twfxh"]
+atlas = ExtResource("2_1npb6")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3766"]
+atlas = ExtResource("2_1npb6")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kv4ef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n54gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03hss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3766")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koamd"]
 atlas = ExtResource("3_73g3l")
@@ -43,6 +80,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yj87d")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(577, 332)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_kv4ef")
+autoplay = "default"
+
 [node name="Play_Button" type="Button" parent="."]
 layout_mode = 2
 offset_left = 956.0
@@ -74,9 +117,9 @@ scale = Vector2(1.28825, 1.23724)
 sprite_frames = SubResource("SpriteFrames_tnne0")
 offset = Vector2(24, 15)
 
-[node name="GunShot" type="AudioStreamPlayer2D" parent="Gun"]
-stream = ExtResource("4_40vyx")
-bus = &"SFX"
+[node name="Musik" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_b76ek")
+autoplay = true
 
 [connection signal="pressed" from="Play_Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Options_Button" to="." method="_on_options_button_pressed"]

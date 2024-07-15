@@ -494,7 +494,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_4wrrv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -523,7 +523,7 @@ stream = ExtResource("6_ube3h")
 bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(10, 10)
+zoom = Vector2(7, 7)
 
 [node name="CameraShake" type="AnimationPlayer" parent="."]
 libraries = {
@@ -541,5 +541,10 @@ visible = false
 position = Vector2(-170, 88)
 sprite_frames = SubResource("SpriteFrames_x6xtm")
 animation = &"Medium"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -1000)
+collision_mask = 256
+collide_with_areas = true
 
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]
