@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2ycfy8bmawyv"]
+[gd_scene load_steps=6 format=3 uid="uid://c2ycfy8bmawyv"]
 
 [ext_resource type="Script" path="res://Scenes/Options.gd" id="1_1s2fr"]
+[ext_resource type="Texture2D" uid="uid://bb20u68d4kiya" path="res://assets/Gun_MainMenu.aseprite.png" id="2_7g4we"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koamd"]
+atlas = ExtResource("2_7g4we")
+region = Rect2(0, 31, 47, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbrdb"]
+atlas = ExtResource("2_7g4we")
+region = Rect2(0, 3, 47, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5nfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koamd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbrdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koamd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -62,6 +88,12 @@ offset_top = 599.0
 offset_right = 82.0
 offset_bottom = 645.0
 text = "Back"
+
+[node name="Gun" type="AnimatedSprite2D" parent="."]
+position = Vector2(525.808, 218.12)
+scale = Vector2(1.28825, 1.23724)
+sprite_frames = SubResource("SpriteFrames_p5nfi")
+offset = Vector2(24, 15)
 
 [connection signal="value_changed" from="VBoxContainer/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Music" to="." method="_on_music_value_changed"]
