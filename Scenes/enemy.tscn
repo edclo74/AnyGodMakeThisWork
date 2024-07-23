@@ -94,6 +94,7 @@ radius = 11.0
 [node name="Enemy" type="Node2D" groups=["Enemy"]]
 z_index = -1
 script = ExtResource("1_yt0l8")
+speed = null
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 one_shot = true

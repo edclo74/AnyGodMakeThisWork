@@ -9,12 +9,12 @@ var is_ready: bool = true
 @onready var Sprite = $AnimationTree.get("parameters/playback")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var GunShot = $GunShot
-@onready var hehe = $"../Main Room/hehe"
-@onready var hehe2 = $"../Other_Room/hehe2"
-@onready var hehe3 = $"../Other_Room2/hehe3"
-@onready var hehe4 = $"../hallway/hehe4"
-@onready var hehe5 = $"../hallway_2/hehe5"
-@onready var hehe6 =$"../Area2D/hehe6"
+#@onready var hehe = $"../Main Room/hehe"
+#@onready var hehe2 = $"../Other_Room/hehe2"
+#@onready var hehe3 = $"../Other_Room2/hehe3"
+#@onready var hehe4 = $"../hallway/hehe4"
+#@onready var hehe5 = $"../hallway_2/hehe5"
+#@onready var hehe6 =$"../Area2D/hehe6"
 @onready var crosshair = $"../Crosshair"
 var direction = Vector2.ZERO
 @onready var CameraShake = $CameraShake
@@ -100,54 +100,60 @@ func _process(delta):
 
 
 func _on_main_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.hide()
-	hehe2.show()
-	hehe3.show()
-	hehe4.show()
-	hehe5.show()
-	hehe6.show()
+	pass
+	#hehe.hide()
+	#hehe2.show()
+	#hehe3.show()
+	#hehe4.show()
+	#hehe5.show()
+	#hehe6.show()
 
 func _on_other_room_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.show()
-	hehe2.hide()
-	hehe3.show()
-	hehe4.show()
-	hehe5.show()
-	hehe6.show()
+	pass
+	#hehe.show()
+	#hehe2.hide()
+	#hehe3.show()
+	#hehe4.show()
+	#hehe5.show()
+	#hehe6.show()
 
 func _on_hallway_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.show()
-	hehe2.show()
-	hehe3.show()
-	hehe4.hide()
-	hehe5.show()
-	hehe6.show()
+	pass
+	#hehe.show()
+	#hehe2.show()
+	#hehe3.show()
+	#hehe4.hide()
+	#hehe5.show()
+	#hehe6.show()
 
 
 
 func _on_hallway_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.show()
-	hehe2.show()
-	hehe3.show()
-	hehe4.show()
-	hehe5.hide()
-	hehe6.show()
+	pass
+	#hehe.show()
+	#hehe2.show()
+	#hehe3.show()
+	#hehe4.show()
+	#hehe5.hide()
+	#hehe6.show()
 
 
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.show()
-	hehe2.show()
-	hehe3.show()
-	hehe4.show()
-	hehe5.show()
-	hehe6.hide()
+	pass
+	#hehe.show()
+	#hehe2.show()
+	#hehe3.show()
+	#hehe4.show()
+	#hehe5.show()
+	#hehe6.hide()
 
 
 func _on_other_room_2_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hehe.show()
-	hehe2.show()
-	hehe3.hide()
-	hehe4.show()
-	hehe5.show()
-	hehe6.show()
+	pass
+	#hehe.show()
+	#hehe2.show()
+	#hehe3.hide()
+	#hehe4.show()
+	#hehe5.show()
+	#hehe6.show()

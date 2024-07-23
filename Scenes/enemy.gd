@@ -1,5 +1,6 @@
 extends Node2D
-@export var speed = 0.2
+@onready var player = $Player
+@export var SPEED = 0.2
 var is_ready: bool = true
 @onready var enemy_health = 3
 var mouse_over = false
@@ -12,10 +13,15 @@ var dead = false
 func hit():
 	enemy_health -=1
 	oof.play()
-	
+func _physics_process(delta):
+	var direction_to_player = global_position.direction_to(player.global_position)
+	var velocity = direction_to_player * SPEED
+	move_and_slide()
+
 func _process(delta):
+	
 	if dead:return
-	$Path2D/PathFollow2D.progress_ratio += speed * delta
+	#$Path2D/PathFollow2D.progress_ratio += speed * delta
 	#if Input.is_action_just_pressed("shoot") and is_ready and mouse_over == true:
 		#$Shoot_Timer.start()
 		#enemy_health -= 1
@@ -27,7 +33,7 @@ func _process(delta):
 		dead = true
 		animator.play("dead")
 		death.play()
-		speed = 0
+		#speed = 0
 
 	else:
 		pass

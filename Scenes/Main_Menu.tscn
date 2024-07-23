@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btvowrcuv284s" path="res://assets/Main_menu_gangterasdasd.aseprite.png" id="2_1npb6"]
 [ext_resource type="Texture2D" uid="uid://3uovi17al5fc" path="res://assets/Play Button.aseprite.png" id="2_mkhwr"]
 [ext_resource type="Texture2D" uid="uid://bb20u68d4kiya" path="res://assets/Gun_MainMenu.aseprite.png" id="3_73g3l"]
-[ext_resource type="AudioStream" uid="uid://jrq3hai6lwm4" path="res://audiomass-output (1).mp3" id="5_un26a"]
+[ext_resource type="AudioStream" uid="uid://ba606g2xkiqs7" path="res://Scenes/Quincas Moreira - Robot City (1).mp3" id="5_wv5yg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n54gp"]
 atlas = ExtResource("2_1npb6")
@@ -119,7 +119,7 @@ sprite_frames = SubResource("SpriteFrames_tnne0")
 offset = Vector2(24, 15)
 
 [node name="Musik" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_un26a")
+stream = ExtResource("5_wv5yg")
 autoplay = true
 bus = &"Music"
 
