@@ -153,7 +153,6 @@ z_index = -1
 position = Vector2(361, 54)
 rotation = 1.5708
 script = ExtResource("4_sltvu")
-speed = 0.25
 
 [node name="Shoot_Timer" type="Timer" parent="Enemy"]
 one_shot = true

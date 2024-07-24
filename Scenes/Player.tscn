@@ -296,7 +296,7 @@ states/Shoot/position = Vector2(682, 83)
 states/Walking/node = SubResource("AnimationNodeAnimation_f88qr")
 states/Walking/position = Vector2(409, 195)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ubg3x"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_ajdum"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_32mce"), "Running", "Walking", SubResource("AnimationNodeStateMachineTransition_ojagp"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_fluhg"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_db0fp"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_8hmct"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_7qk4c")]
-graph_offset = Vector2(-95.507, -1.32364)
+graph_offset = Vector2(-125.702, 15.325)
 
 [sub_resource type="Animation" id="Animation_2iw6t"]
 resource_name = "Cam_Shake"
@@ -523,7 +523,7 @@ stream = ExtResource("6_ube3h")
 bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(7, 7)
+zoom = Vector2(2, 2)
 
 [node name="CameraShake" type="AnimationPlayer" parent="."]
 libraries = {
