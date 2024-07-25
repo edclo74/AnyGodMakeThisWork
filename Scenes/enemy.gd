@@ -7,26 +7,33 @@ var is_ready: bool = true
 var mouse_over = false
 @onready var cooldown_timer = $Shoot_Timer
 @onready var oof = $AudioStreamPlayer2D
-@onready var animator = $Path2D/PathFollow2D/Area2D/AnimatedSprite2D
+@onready var animator = $Area2D/AnimatedSprite2D
 @onready var death = $death
 var dead = false
-@onready var detection_area = $Path2D/PathFollow2D/Area2D/DetectionArea
+var can_see = false
+@onready var detection_area = $Area2D/DetectionArea
 func hit():
 	enemy_health -=1
 	oof.play()
 	
 
 func _physics_process(delta):
-	var direction_to_player = global_position.direction_to(player.global_position)
-	velocity = direction_to_player * SPEED
-	if dead == true:
-		pass
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if can_see:
+		shoot()
 	else:
-		look_at(player.global_position)
-		
-	move_and_slide()
+		var direction_to_player = global_position.direction_to(player.global_position)
+		velocity = direction_to_player * SPEED
+		if dead == true:
+			pass
+		else:
+			look_at(player.global_position)
+			
+		move_and_slide()
 
-
+func shoot():
+	pass
 
 func _process(delta):
 	if dead:return
@@ -50,16 +57,8 @@ func _process(delta):
 		pass
 	
 
-	var detected = detection_area.get_overlapping_bodies()
-	for body in detected:
-		if body.is_in_group("Player"):
-			SPEED = 0
-			detected = true
-		else:
-			pass
-	#for body not detected:           #- Needs word to replace 'not' for when something isn't in detected
-		#SPEED = 100
-		#detected = false
+	
+	
 
 
 
@@ -80,6 +79,10 @@ func _on_shoot_timer_timeout():
 
 
 func _on_detection_area_body_entered(body):
-	pass
+	can_see= true
 
 
+
+
+func _on_detection_area_body_exited(body):
+	can_see = false # Replace with function body.
