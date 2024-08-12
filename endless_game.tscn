@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg6gnsacbdj5s"]
+[gd_scene load_steps=5 format=3 uid="uid://cg6gnsacbdj5s"]
 
 [ext_resource type="TileSet" uid="uid://crdmh70ujp2yv" path="res://TileMap.tres" id="1_dmbvt"]
 [ext_resource type="PackedScene" uid="uid://dis4ybo7yihh8" path="res://Scenes/Player.tscn" id="2_giy0s"]
 [ext_resource type="Texture2D" uid="uid://d0hhjt6by1xoh" path="res://crosshair.aseprite.png" id="3_oorcb"]
 [ext_resource type="PackedScene" uid="uid://7pwe60a0qt6u" path="res://Scenes/enemy.tscn" id="4_01p27"]
-[ext_resource type="PackedScene" uid="uid://2dgnpt0d23dm" path="res://Scenes/node_2d.tscn" id="5_ww7cs"]
 
 [node name="endless_game" type="Node2D"]
 
@@ -19,8 +18,6 @@ layer_0/tile_data = PackedInt32Array(6160584, 131073, 4, 6095048, 262145, 3, 602
 [node name="Player" parent="." instance=ExtResource("2_giy0s")]
 position = Vector2(1907, 810)
 
-[node name="Spawners" type="Node2D" parent="Player"]
-
 [node name="Crosshair" type="Sprite2D" parent="."]
 position = Vector2(361, 54)
 rotation = 1.5708
@@ -34,18 +31,3 @@ position = Vector2(2064, 1082)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_01p27")]
 position = Vector2(1666, 429)
-
-[node name="Node2D" parent="." instance=ExtResource("5_ww7cs")]
-position = Vector2(2061, 755)
-
-[node name="Node2D2" parent="." instance=ExtResource("5_ww7cs")]
-position = Vector2(1736, 729)
-
-[node name="Node2D3" parent="." instance=ExtResource("5_ww7cs")]
-position = Vector2(2034, 916)
-
-[node name="Node2D4" parent="." instance=ExtResource("5_ww7cs")]
-position = Vector2(2147, 599)
-
-[node name="Node2D5" parent="." instance=ExtResource("5_ww7cs")]
-position = Vector2(1913, 635)
